@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+
+
 
 
 
@@ -15,7 +18,7 @@ Rails.application.routes.draw do
   resources :genres
   resources :books
   resources :reader_cards
-
+  resources :main
 
   root "main#index"
 end

@@ -1,4 +1,5 @@
 class BibliotekasController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @bibliotekas = Biblioteka.all
   end

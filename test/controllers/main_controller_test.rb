@@ -1,7 +1,13 @@
 require "test_helper"
 
 class MainControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get login" do
+    get main_login_url
+    assert_response :success
+  end
+
+  test "should get register" do
+    get main_register_url
+    assert_response :success
+  end
 end
