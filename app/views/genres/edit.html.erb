@@ -1,0 +1,6 @@
+<h3>Update Genre Details</h3>
+<%= form_with model: @genre do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control' %>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h4 class="mt-4 mb-4 display-4">Show details of Book <%= @book.id %></h4>
+  </div>
+  <div class="row justify-content-center">
+    <table class="table">
+      <tbody>
+      <tr>
+        <th>Title:</th>
+        <td><%= @book.title %></td>
+        <th>Author:</th>
+        <td><%= @book.author.name %></td>
+        <th>Biblioteka:</th>
+        <td><%= @book.biblioteka.name %></td>
+        <th>Genre:</th>
+        <td><%= @book.genre.name %></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to "Back to list", root_path %>
+</div>

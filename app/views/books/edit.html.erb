@@ -1,0 +1,12 @@
+<h3>Update Book Details</h3>
+<%= form_with model: @book do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title, class: 'form-control' %>
+  <%= form.label :author_id %>
+  <%= form.text_field :author_id, class: 'form-control' %>
+  <%= form.label :biblioteka_id %>
+  <%= form.text_field :biblioteka_id, class: 'form-control' %>
+  <%= form.label :genre_id %>
+  <%= form.text_field :genre_id, class: 'form-control' %>
+  <%= form.submit %>
+<% end %>

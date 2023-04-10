@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <h4 class="mt-4 display-4">Listing Genres</h4>
+  </div>
+  <%= link_to 'Create Genre', new_genre_path %>
+  <div class="row justify-content-center">
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col" colspan="3">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @genres.each do |genre| %>
+        <tr>
+          <td><%= genre.name %></td>
+          <td><%= link_to 'Show', genre_path(genre.id) %></td>
+          <td><%= button_to 'Edit', edit_genre_path(genre), method: 'get'%></td>
+          <td><%= button_to 'Remove', genre_path(genre), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </table>
+  </div>
+  <div class="p-3 mb-2 bg-light text-dark">
+    <span class="text-info font-weight-bold">Welcome! </span>
+    Create genre
+  </div>
+</div>

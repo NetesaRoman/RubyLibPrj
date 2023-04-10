@@ -1,0 +1,10 @@
+<h3>Update library Details</h3>
+<%= form_with model: @biblioteka do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: 'form-control' %>
+  <%= form.label :address %>
+  <%= form.text_field :address, class: 'form-control' %>
+  <%= form.label :phone %>
+  <%= form.text_field :phone, class: 'form-control' %>
+   <%= form.submit %>
+<% end %>

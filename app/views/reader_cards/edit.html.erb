@@ -1,0 +1,13 @@
+<h3>Update reader card Details</h3>
+<%= form_with model: @biblioteka do |form| %>
+  <%= form.label :date_issued %>
+  <%= form.text_field :date_issued, class: 'form-control' %>
+  <%= form.label :date_expired %>
+  <%= form.text_field :date_expired, class: 'form-control' %>
+  <%= form.label :user_id %>
+  <%= form.text_field :user_id, class: 'form-control' %>
+  <%= form.label :biblioteka_id %>
+  <%= form.text_field :biblioteka_id, class: 'form-control' %>
+
+   <%= form.submit %>
+<% end %>
