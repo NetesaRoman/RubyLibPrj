@@ -16,8 +16,7 @@
         <tr>
           <td><%= biblioteka.name %></td>
           <td><%= link_to 'Show', biblioteka_path(biblioteka.id) %></td>
-          <td><%= button_to 'Edit', edit_biblioteka_path(biblioteka), method: 'get'%></td>
-          <td><%= button_to 'Remove', biblioteka_path(biblioteka), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
       </table>
   </div>

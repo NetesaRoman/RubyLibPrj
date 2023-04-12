@@ -15,4 +15,7 @@
     </table>
   </div>
   <%= link_to "Back to list", root_path %>
+
+  <td><%= button_to 'Edit', edit_user_path(@user), method: 'get'%></td>
+  <td><%= button_to 'Remove', user_path(@user), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
 </div>
