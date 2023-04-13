@@ -1,7 +1,11 @@
 class BibliotekasController < ApplicationController
+
+
   before_action :authenticate_admin!
+
   def index
-    @bibliotekas = Biblioteka.all
+    @q = Biblioteka.ransack(params[:q])
+    @bibliotekas = @q.result(distinct: true)
   end
 
   def show

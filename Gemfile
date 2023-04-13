@@ -26,6 +26,7 @@ gem "stimulus-rails"
 gem "pg", "~> 1.1"
 gem 'faker'
 gem 'devise'
+gem 'ransack'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
