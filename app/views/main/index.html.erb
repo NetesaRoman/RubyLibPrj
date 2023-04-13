@@ -1,17 +1,20 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 display-4">Hello!</h4>
+
+<div>
+  <header >
+    <div class="site-name">Lib</div>
+    <div style="display: flex; justify-content: center;">
+      <ul>
+        <li><%= link_to 'Libraries', bibliotekas_path, id: 'headerLink'%></li>
+      </ul>
+    </div>
+  </header>
+  <div id = "root_buttons">
+    <%= button_to 'Sign up', new_admin_registration_path , method: 'get', id: 'rootBtn'%>
+    <%= button_to 'Log in',new_admin_session_path , method: 'get', id: 'rootBtn'%>
   </div>
 
-  <div class="row justify-content-center">
-    <%= button_to 'Sign up', new_admin_registration_path , method: 'get'%>
-    <%= button_to 'Log in',new_admin_session_path , method: 'get'%>
-  </div>
 
 
-  <ul>
-    <li><%= link_to 'Libraries', bibliotekas_path %></li>
-  </ul>
 
 
 

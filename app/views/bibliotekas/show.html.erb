@@ -1,26 +1,30 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">Show details of biblioteka <%= @biblioteka.id %></h4>
+<header >
+  <div class="site-name">Library info</div>
+  <div style="display: flex; justify-content: center;">
+    <ul>
+      <%= link_to "Back to list", root_path, id: 'headerLink' %>
+      <%= link_to "Users", users_path, id: 'headerLink' %>
+    </ul>
   </div>
-  <div class="row justify-content-center">
-    <table class="table">
-      <tbody>
-      <tr>
-        <th>Name:</th>
-        <td><%= @biblioteka.name %></td>
-        <th>Address:</th>
-        <td><%= @biblioteka.address %></td>
-        <th>Phone:</th>
-        <td><%= @biblioteka.phone %></td>
+</header>
 
 
-      </tr>
-      </tbody>
-    </table>
+  <div >
 
-    <td><%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get'%></td>
-    <td><%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+
+        <h2>Name:</h2>
+        <p><%= @biblioteka.name %></p>
+        <h2>Address:</h2>
+        <p><%= @biblioteka.address %></p>
+        <h2>Phone:</h2>
+        <p><%= @biblioteka.phone %></p>
+
+
+    <div id = "root_buttons", style="margin-top: 10%;     justify-content: left;  align-items: center;">
+      <%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get', id: 'rootBtn'%>
+      <%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn'%>
+    </div>
+
   </div>
-  <%= link_to "Back to list", root_path %>
-  <%= link_to "Users", users_path %>
-</div>
+
+

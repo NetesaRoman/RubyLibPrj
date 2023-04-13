@@ -1,14 +1,21 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 display-4">Listing Bibliotekas</h4>
+<header >
+  <div class="site-name">Listing libraries</div>
+  <div style="display: flex; justify-content: center;">
+    <ul>
+      <li><%= link_to 'Create libraries', new_biblioteka_path, id: 'headerLink' %></li>
+    </ul>
   </div>
-  <%= link_to 'Create biblioteka', new_biblioteka_path %>
-  <div class="row justify-content-center">
-    <table class="table table-bordered">
-      <thead>
+</header>
+
+<div>
+
+
+  <div id = 'models'>
+    <table id = 'modelsTable'>
+      <thead id = 'modelsThead'>
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col" colspan="3">Action</th>
+        <th >Title</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -20,8 +27,5 @@
       <% end %>
       </table>
   </div>
-  <div class="p-3 mb-2 bg-light text-dark">
-    <span class="text-info font-weight-bold">Welcome! </span>
-    Create Book
-  </div>
+
 </div>

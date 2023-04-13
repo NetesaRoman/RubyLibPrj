@@ -1,5 +1,16 @@
-<h3>Update library Details</h3>
-<%= form_with model: @biblioteka do |form| %>
+
+
+<header >
+  <div class="site-name">Update library Details</div>
+  <div style="display: flex; justify-content: center;">
+    <ul>
+      <%= link_to "Back to list", root_path, id: 'headerLink' %>
+      <%= link_to "Users", users_path, id: 'headerLink' %>
+    </ul>
+  </div>
+</header>
+
+<%= form_with id: 'modelForm', model: @biblioteka do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name, class: 'form-control' %>
   <%= form.label :address %>

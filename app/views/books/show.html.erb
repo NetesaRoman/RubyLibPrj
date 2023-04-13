@@ -1,23 +1,29 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">Show details of Book <%= @book.id %></h4>
-  </div>
-  <div class="row justify-content-center">
-    <table class="table">
-      <tbody>
-      <tr>
-        <th>Title:</th>
-        <td><%= @book.title %></td>
-        <th>Author:</th>
-        <td><%= @book.author.name %></td>
-        <th>Biblioteka:</th>
-        <td><%= @book.biblioteka.name %></td>
-        <th>Genre:</th>
-        <td><%= @book.genre.name %></td>
+<div >
+  <header >
+    <div class="site-name">
+      <p >Show details of book <%= @book.id %></p>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <%= link_to "Back to list", root_path, id:'headerLink'%>
+    </div>
+  </header>
+  <div >
 
-      </tr>
-      </tbody>
-    </table>
+        <h2>Title:</h2>
+        <p><%= @book.title %></p>
+        <h2>Author:</h2>
+        <p><%= @book.author.name %></p>
+        <h2>Biblioteka:</h2>
+        <p><%= @book.biblioteka.name %></p>
+        <h2>Genre:</h2>
+        <p><%= @book.genre.name %></p>
+
   </div>
-  <%= link_to "Back to list", root_path %>
+
+
+  <div id = "root_buttons", style="margin-top: 10%;     justify-content: left;  align-items: center;">
+    <td><%= button_to 'Edit', edit_book_path(@book), method: 'get', id: 'rootBtn'%></td>
+    <td><%= button_to 'Remove', book_path(@book), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn' %></td>
+  </div>
+
 </div>

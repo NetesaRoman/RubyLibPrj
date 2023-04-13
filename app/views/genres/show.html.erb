@@ -1,16 +1,22 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 mb-4 display-4">Show details of genre <%= @genre.id %></h4>
-  </div>
-  <div class="row justify-content-center">
-    <table class="table">
-      <tbody>
-      <tr>
-        <th>Name:</th>
-        <td><%= @genre.name %></td>
-      </tr>
-      </tbody>
-    </table>
+<div>
+  <header >
+    <div class="site-name">
+      <p >Show details of genre <%= @genre.id %></p>
+    </div>
+    <div style="display: flex; justify-content: center;">
+
+    </div>
+  </header>
+  <div >
+
+        <h2>Name:</h2>
+        <p><%= @genre.name %></p>
+
   </div>
   <%= link_to "Back to list", root_path %>
+
+  <div id = "root_buttons", style="margin-top: 10%;     justify-content: left;  align-items: center;">
+    <td><%= button_to 'Edit', edit_genre_path(@genre), method: 'get', id: 'rootBtn'%></td>
+    <td><%= button_to 'Remove', genre_path(@genre), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn'%></td>
+  </div>
 </div>

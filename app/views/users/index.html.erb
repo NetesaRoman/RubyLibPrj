@@ -1,14 +1,21 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 display-4">Listing Users</h4>
+<header >
+  <div class="site-name">Listing users</div>
+  <div style="display: flex; justify-content: center;">
+    <ul>
+      <li><%= link_to 'Create users', new_user_path, id: 'headerLink' %></li>
+    </ul>
   </div>
-  <%= link_to 'Create User', new_user_path %>
-  <div class="row justify-content-center">
-    <table class="table table-bordered">
-      <thead>
+</header>
+
+<div >
+
+
+  <div id = 'models'>
+    <table id ='modelsTable' style = 'margin-top: 155px'>
+      <thead id = 'modelsThead'>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col" colspan="3">Action</th>
+        <th>Name</th>
+        <th>Action</th>
       </tr>
       </thead>
       <tbody>
@@ -20,8 +27,5 @@
       <% end %>
       </table>
   </div>
-  <div class="p-3 mb-2 bg-light text-dark">
-    <span class="text-info font-weight-bold">Welcome! </span>
-    Create user
-  </div>
+
 </div>

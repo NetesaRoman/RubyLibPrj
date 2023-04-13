@@ -1,14 +1,20 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <h4 class="mt-4 display-4">Listing readewr cards</h4>
-  </div>
-  <%= link_to 'Create biblioteka', new_reader_card_path %>
-  <div class="row justify-content-center">
-    <table class="table table-bordered">
-      <thead>
+
+  <header >
+    <div class="site-name">Listing cards</div>
+    <div style="display: flex; justify-content: center;">
+      <ul>
+        <li><%= link_to 'Create card', new_reader_card_path, id: 'headerLink' %></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <div id = 'models'>
+    <table id ='modelsTable' style = 'margin-top: 195px'>
+      <thead id = 'modelsThead'>
       <tr>
-        <th scope="col">Title</th>
-        <th scope="col" colspan="3">Action</th>
+        <th>Title</th>
+        <th >Action</th>
       </tr>
       </thead>
       <tbody>
@@ -16,13 +22,8 @@
         <tr>
           <td><%= reader_card.id %></td>
           <td><%= link_to 'Show', reader_card_path(reader_card.id) %></td>
-          <td><%= button_to 'Edit', edit_reader_card_path(reader_card), method: 'get'%></td>
-          <td><%= button_to 'Remove', reader_card_path(reader_card), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+
       <% end %>
       </table>
   </div>
-  <div class="p-3 mb-2 bg-light text-dark">
-    <span class="text-info font-weight-bold">Welcome! </span>
-    Create Book
-  </div>
-</div>
+

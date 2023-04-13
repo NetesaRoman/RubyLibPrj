@@ -1,5 +1,14 @@
-<h3>Update Genre Details</h3>
-<%= form_with model: @genre do |form| %>
+<header >
+  <div class="site-name">Update genre Details</div>
+  <div style="display: flex; justify-content: center;">
+    <ul>
+      <%= link_to "Back to list", root_path, id: 'headerLink' %>
+      <%= link_to "Users", users_path, id: 'headerLink' %>
+    </ul>
+  </div>
+</header>
+
+<%= form_with id: 'modelForm', model: @genre do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name, class: 'form-control' %>
   <%= form.submit %>
