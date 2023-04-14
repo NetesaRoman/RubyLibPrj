@@ -3,6 +3,10 @@ class Book < ApplicationRecord
   belongs_to :genre
   belongs_to :biblioteka
 
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title]
+  end
+
   def update_title(new_title)
     update(title: new_title)
   end

@@ -8,6 +8,11 @@
     </div>
   </header>
 
+  <%= search_form_for @q do |f| %>
+    <%= f.label :name_cont, "Search by Title" %>
+    <%= f.search_field :title_cont %>
+    <%= f.submit "Search" %>
+  <% end %>
 
   <div id = 'models'>
     <table id ='modelsTable' style = 'margin-top: 210px'>

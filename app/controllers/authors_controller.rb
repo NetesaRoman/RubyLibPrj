@@ -1,9 +1,9 @@
 class AuthorsController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @authors = Author.all
+    @q = Author.ransack(params[:q])
+    @authors = @q.result(distinct: true)
   end
-
   def show
     @author = Author.find(params[:id])
   end

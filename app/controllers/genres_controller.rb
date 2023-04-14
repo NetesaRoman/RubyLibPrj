@@ -1,7 +1,8 @@
 class GenresController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @genres = Genre.all
+    @q = Genre.ransack(params[:q])
+    @genres = @q.result(distinct: true)
   end
 
   def show

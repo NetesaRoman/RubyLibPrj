@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @books = Book.all
+    @q = Book.ransack(params[:q])
+    @books = @q.result(distinct: true)
   end
 
   def show

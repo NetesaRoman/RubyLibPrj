@@ -8,7 +8,11 @@
 </header>
 
 <div >
-
+  <%= search_form_for @q do |f| %>
+    <%= f.label :name_cont, "Search by Name" %>
+    <%= f.search_field :name_cont %>
+    <%= f.submit "Search" %>
+  <% end %>
 
   <div id = 'models'>
     <table id ='modelsTable' style = 'margin-top: 175px'>
