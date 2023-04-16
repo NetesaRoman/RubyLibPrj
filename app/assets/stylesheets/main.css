@@ -54,10 +54,10 @@ header {
 
 #modelsTable{
     margin-left: 5px;
-    margin-top: 190px;
+
     background-color: #9DFCBB;
-    width: 1000px;
-    height: 700px;
+    width: 1400px;
+    height: 500px;
     border: 2px solid black;
 
     position: absolute;
@@ -71,6 +71,7 @@ header {
 
 #modelsThead{
     background-color: #388b52;
+    color: #fff;
 }
 
 #models{
@@ -130,4 +131,54 @@ header {
 #modelForm input {
     width: 100%;
     height: 30px;
+}
+
+#myPagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 815px; /* изменить значение в зависимости от нужного отступа */
+    margin-left: 42%;
+
+
+    height: 50px;
+    width: 300px;
+    background-color: #004d1a;
+    color: #fff;
+
+}
+
+
+#myPagination ul{
+    color: white;
+}
+
+#myPagination a{
+    color: white;
+}
+
+#mySearch{
+    color: #fff;
+    margin-bottom: 5px;
+
+}
+
+#mySearch input[type="submit"] {
+
+    width: 90px;
+    height: 30px;
+
+    background-color: #3dbb67;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+
+    cursor: pointer;
+}
+
+#mySearch input[type="submit"]:hover {
+    background-color: #4fd97d;
+}
+
+#mySearch input[type="submit"]:active {
+    background-color: #b6f1c9;
 }

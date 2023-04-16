@@ -1,3 +1,5 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <header >
   <div class="site-name">Listing libraries</div>
   <div style="display: flex; justify-content: center;">
@@ -9,18 +11,25 @@
 
 <div>
 
-  <%= search_form_for @q do |f| %>
-    <%= f.label :name_cont, "Search by Name" %>
-    <%= f.search_field :name_cont %>
-    <%= f.submit "Search" %>
-  <% end %>
 
 
-  <div id = 'models'>
+
     <table id = 'modelsTable'>
       <thead id = 'modelsThead'>
       <tr>
-        <th >Title</th>
+        <th > <%= link_to "Library Name",  bibliotekas_path(sort: "name") %>
+          <div id = "mySearch">
+          <%= search_form_for @q do |f| %>
+            <%= f.label :name_cont, "Search by Name" %>
+            <%= f.search_field :name_cont %>
+            <%= f.submit "Search" %>
+          <% end %>
+        </div>
+
+        </th>
+        <th > <%= link_to "Number of Books", bibliotekas_path(sort: "book_count") %></th>
+        <th > <%= link_to "Number of Genres", bibliotekas_path(sort: "genre_count") %></th>
+
         <th>Action</th>
       </tr>
       </thead>
@@ -28,10 +37,15 @@
       <% @bibliotekas.each do |biblioteka| %>
         <tr>
           <td><%= biblioteka.name %></td>
+          <td><%= biblioteka.books.count %></td>
+          <td><%= biblioteka.books.select(:genre_id).distinct.count %></td>
           <td><%= link_to 'Show', biblioteka_path(biblioteka.id) %></td>
 
       <% end %>
       </table>
+
+  <div id = "myPagination">
+    <%= will_paginate @bibliotekas %>
   </div>
 
 </div>

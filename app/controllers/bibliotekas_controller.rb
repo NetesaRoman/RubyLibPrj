@@ -1,12 +1,24 @@
+require 'kaminari'
+
 class BibliotekasController < ApplicationController
 
 
   before_action :authenticate_admin!
 
   def index
+
+
     @q = Biblioteka.ransack(params[:q])
-    @bibliotekas = @q.result(distinct: true)
+    @bibliotekas = @q.result(distinct: true).includes(:books)
+
+
+    @bibliotekas = @bibliotekas.order(:name) if params[:sort] == "name"
+    @bibliotekas = @bibliotekas.sort_by { |biblioteka| biblioteka.books.count } if params[:sort] == "book_count"
+    @bibliotekas = @bibliotekas.sort_by { |biblioteka| biblioteka.books.select(:genre_id).distinct.count } if params[:sort] == "genre_count"
+    @bibliotekas = Kaminari.paginate_array(@bibliotekas).page(params[:page]).per(10)
   end
+
+
 
   def show
     @biblioteka = Biblioteka.find(params[:id])

@@ -27,6 +27,9 @@ gem "pg", "~> 1.1"
 gem 'faker'
 gem 'devise'
 gem 'ransack'
+gem 'will_paginate'
+gem 'turbolinks'
+gem 'kaminari'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 

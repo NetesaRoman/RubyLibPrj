@@ -19,4 +19,12 @@ class Biblioteka < ApplicationRecord
       )
     end
   end
+
+  def book_count
+    books.count
+  end
+
+  def genre_count
+    books.select(:genre_id).distinct.count
+  end
 end
