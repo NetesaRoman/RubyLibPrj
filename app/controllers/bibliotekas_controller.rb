@@ -22,6 +22,16 @@ class BibliotekasController < ApplicationController
 
   def show
     @biblioteka = Biblioteka.find(params[:id])
+    @users = User.joins(:reader_card).where(reader_cards: {biblioteka_id: @biblioteka.id})
+    @users = @users.where("name LIKE ?", "%#{params[:name]}%") if params[:name].present?
+    @users = @users.where(age: params[:age]) if params[:age].present?
+
+    @users = @users.order(:name) if params[:sort] == "name"
+    @users = @users.sort_by { |user| user.age } if params[:sort] == "age"
+    @users = @users.sort_by { |user| user.reader_card.id} if params[:sort] == "card"
+
+
+    @users = Kaminari.paginate_array(@users).page(params[:page]).per(10)
   end
 
   def edit

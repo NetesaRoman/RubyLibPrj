@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one :reader_card
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[name]
+    %w[name age]
   end
 
   def update_email(new_email)

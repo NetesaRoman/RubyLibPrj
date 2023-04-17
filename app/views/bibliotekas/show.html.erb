@@ -1,30 +1,80 @@
-<header >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<header>
   <div class="site-name">Library info</div>
   <div style="display: flex; justify-content: center;">
     <ul>
-      <%= link_to "Back to list", root_path, id: 'headerLink' %>
-      <%= link_to "Users", users_path, id: 'headerLink' %>
+      <%= link_to "Back libraries", bibliotekas_path, id: 'headerLink' %>
+
     </ul>
   </div>
 </header>
 
 
-  <div >
+<div >
 
-
-        <h2>Name:</h2>
-        <p><%= @biblioteka.name %></p>
-        <h2>Address:</h2>
-        <p><%= @biblioteka.address %></p>
-        <h2>Phone:</h2>
-        <p><%= @biblioteka.phone %></p>
-
-
-    <div id = "root_buttons", style="margin-top: 10%;     justify-content: left;  align-items: center;">
-      <%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get', id: 'rootBtn'%>
-      <%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn'%>
+  <div style='  display: flex; width: 1000px;'>
+    <div style="margin-right: 1200px; margin-bottom: 100px">
+      <h2>Name:</h2>
+      <p><%= @biblioteka.name %></p>
+      <h2>Address:</h2>
+      <p><%= @biblioteka.address %></p>
+      <h2>Phone:</h2>
+      <p><%= @biblioteka.phone %></p>
     </div>
 
+    <div id="show_buttons">
+      <%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get', id: 'rootBtn' %>
+      <%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn' %>
+    </div>
   </div>
+
+<div>
+  <h2 style="margin-left: 48%; " >Users</h2>
+  <% if @users.any? %>
+    <table id='modelsTable' style='margin-top: 300px'>
+      <thead id='modelsThead'>
+      <tr>
+        <th><%= link_to "Name",  biblioteka_path(@biblioteka, sort: "name") %>
+          <div id = "mySearch">
+            <%= form_tag biblioteka_path(@biblioteka), method: :get do %>
+              <%= text_field_tag :name, params[:name] %>
+              <%= submit_tag "Search" %>
+            <% end %>
+          </div>
+        </th>
+        <th><%= link_to "Age",  biblioteka_path(@biblioteka, sort: "age") %>
+          <div id = "mySearch">
+            <%= form_tag biblioteka_path(@biblioteka), method: :get do %>
+              <%= number_field_tag :age, params[:age] %>
+              <%= submit_tag "Search" %>
+            <% end %>
+
+        </div>
+        </th>
+        <th><%= link_to "Reader card",  biblioteka_path(@biblioteka, sort: "card") %></th>
+
+      </tr>
+      </thead>
+      <tbody>
+      <% @users.each do |user| %>
+        <tr>
+         <td> <%= link_to user.name, user_path(user), id: 'headerLink' %></td>
+          <td><%= user.age %></td>
+          <td><%= link_to user.reader_card.id, reader_card_path(user.reader_card), id: 'headerLink' %></td>
+
+
+      <% end %>
+      </table>
+  <% else %>
+    <p>No users found.</p>
+  <% end %>
+</div>
+
+  <div id = "myPagination">
+    <%= will_paginate @users %>
+  </div>
+
+</div>
 
 
