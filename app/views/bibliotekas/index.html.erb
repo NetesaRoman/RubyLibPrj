@@ -1,4 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 <header >
   <div class="site-name">Listing libraries</div>
@@ -44,6 +44,11 @@
       <% end %>
       </table>
 
+  <div id = "export_buttons">
+  <%= button_to 'download libs pdf', 'libs_report' , method: 'get', id: 'exportBtn'%>
+    <%= button_to 'download users pdf', 'users_report' , method: 'get', id: 'exportBtn'%>
+  <%= button_to 'download libs csv', 'libs_csv_report.csv', method: 'get', id: 'exportBtn'%>
+  </div>
   <div id = "myPagination">
     <%= will_paginate @bibliotekas %>
   </div>

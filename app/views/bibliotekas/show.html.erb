@@ -23,10 +23,7 @@
       <p><%= @biblioteka.phone %></p>
     </div>
 
-    <div id="show_buttons">
-      <%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get', id: 'rootBtn' %>
-      <%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'rootBtn' %>
-    </div>
+
   </div>
 
 <div>
@@ -71,7 +68,13 @@
   <% end %>
 </div>
 
-  <div id = "myPagination">
+  <div id = "export_buttons">
+    <%= button_to 'Edit', edit_biblioteka_path(@biblioteka), method: 'get', id: 'exportBtn' %>
+    <%= button_to 'Remove', biblioteka_path(@biblioteka), method: 'delete', data: { confirm: 'Are you sure?' }, id: 'exportBtn' %>
+    <%= button_to 'download pdf',lib_report_path(@biblioteka.id), method: 'get', id: 'exportBtn'%>
+  </div>
+
+  <div id = "myPagination" style = "margin-top: 55px">
     <%= will_paginate @users %>
   </div>
 

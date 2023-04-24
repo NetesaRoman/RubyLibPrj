@@ -21,9 +21,24 @@
 
 #root_buttons{
     margin-top: 20%;
+
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#export_buttons{
+
+    margin-top: 650px;
+
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#modelsTable tr:nth-child(even) {
+    background-color: #77c58f;
 }
 
 header {
@@ -136,7 +151,7 @@ header {
 #myPagination {
     display: flex;
     justify-content: center;
-    margin-top: 815px; /* изменить значение в зависимости от нужного отступа */
+    margin-top: 85px; /* изменить значение в зависимости от нужного отступа */
     margin-left: 42%;
 
 
@@ -192,4 +207,27 @@ header {
 
 #modelsTable a{
     color: black;
+}
+
+#exportBtn {
+
+    width: 100px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #006620;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+
+    cursor: pointer;
+}
+
+#exportBtn[type="submit"]:hover {
+    background-color: #004d1a;
+}
+
+#exportBtn[type="submit"]:active {
+    background-color: #003311;
 }

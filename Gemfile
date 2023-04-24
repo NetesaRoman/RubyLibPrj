@@ -24,6 +24,7 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 gem "pg", "~> 1.1"
+gem 'pdfkit'
 gem 'faker'
 gem 'devise'
 gem 'ransack'

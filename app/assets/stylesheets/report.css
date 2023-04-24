@@ -1,0 +1,103 @@
+
+
+#modelsTable{
+    margin-right: 500px;
+
+    background-color: #9DFCBB;
+    width: 1400px;
+    height: 500px;
+    border: 2px solid black;
+
+    position: absolute;
+
+
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+#modelsTable td{
+
+
+    width: 150px;
+    overflow-x: hidden;
+}
+
+
+#modelsTable tr:nth-child(even) {
+    background-color: #77c58f;
+}
+
+#modelsThead{
+    width: 150px;
+    background-color: #388b52;
+    color: #fff;
+}
+
+#models{
+
+    width: 800px;
+    height: 700px;
+    border: 2px solid black;
+
+    position: absolute;
+
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+#modelForm {
+    width: 400px;
+    height: auto;
+    margin-top: 10%;
+    margin-left: 37%;
+    background-color: #9DFCBB;
+    border: 1px solid black;
+    padding: 20px;
+
+    color: black;
+}
+
+
+#modelForm input[type="submit"] {
+
+    width: 150px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 64%;
+    background-color: #006620;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+
+    cursor: pointer;
+}
+
+#modelForm input[type="submit"]:hover {
+    background-color: #004d1a;
+}
+
+#modelForm input[type="submit"]:active {
+    background-color: #003311;
+}
+
+#modelForm label {
+    display: block;
+}
+
+#modelForm input {
+    width: 100%;
+    height: 30px;
+}
+
+
+
+
+
+
+
+
+#modelsTable a{
+    color: black;
+}
+
+
