@@ -27,8 +27,13 @@
         </div>
 
         </th>
-        <th > <%= link_to "Number of Books", bibliotekas_path(sort: "book_count") %></th>
-        <th > <%= link_to "Number of Genres", bibliotekas_path(sort: "genre_count") %></th>
+        <%sort_count = "book_count" if @up %>
+        <%sort_count = "book_count_desc" if !@up %>
+        <%sort_genre = "genre_count" if @up_genre %>
+        <%sort_genre = "genre_count_desc" if !@up_genre %>
+
+        <th > <%= link_to "Number of Books", bibliotekas_path(sort: sort_count) %></th>
+        <th > <%= link_to "Number of Genres", bibliotekas_path(sort: sort_genre ) %></th>
 
         <th>Action</th>
       </tr>

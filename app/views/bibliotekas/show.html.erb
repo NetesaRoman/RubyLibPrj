@@ -29,10 +29,19 @@
 <div>
   <h2 style="margin-left: 48%; " >Users</h2>
   <% if @users.any? %>
+
+    <%sort_age = "age" if @up_age %>
+    <%sort_age = "age_desc" if !@up_age %>
+    <%sort_card = "card" if @up_card %>
+    <%sort_card = "card_desc" if !@up_card %>
+
+
     <table id='modelsTable' style='margin-top: 300px'>
       <thead id='modelsThead'>
       <tr>
         <th><%= link_to "Name",  biblioteka_path(@biblioteka, sort: "name") %>
+
+
           <div id = "mySearch">
             <%= form_tag biblioteka_path(@biblioteka), method: :get do %>
               <%= text_field_tag :name, params[:name] %>
@@ -40,7 +49,7 @@
             <% end %>
           </div>
         </th>
-        <th><%= link_to "Age",  biblioteka_path(@biblioteka, sort: "age") %>
+        <th><%= link_to "Age",  biblioteka_path(@biblioteka, sort: sort_age) %>
           <div id = "mySearch">
             <%= form_tag biblioteka_path(@biblioteka), method: :get do %>
               <%= number_field_tag :age, params[:age] %>
@@ -49,7 +58,7 @@
 
         </div>
         </th>
-        <th><%= link_to "Reader card",  biblioteka_path(@biblioteka, sort: "card") %></th>
+        <th><%= link_to "Reader card",  biblioteka_path(@biblioteka, sort: sort_card) %></th>
 
       </tr>
       </thead>
