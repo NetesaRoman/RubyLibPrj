@@ -17,6 +17,7 @@
     <table id = 'modelsTable'>
       <thead id = 'modelsThead'>
       <tr>
+        <th>Logo</th>
         <th > <%= link_to "Library Name",  bibliotekas_path(sort: "name") %>
           <div id = "mySearch">
           <%= search_form_for @q do |f| %>
@@ -41,6 +42,11 @@
       <tbody>
       <% @bibliotekas.each do |biblioteka| %>
         <tr>
+          <% if biblioteka.image.present? %>
+            <td> <%= image_tag biblioteka.image, width: 50, height: 50 %></td>
+          <% else %>
+            <td> <%= image_tag '/bibliotekas/lib_template.jpg', width: 50, height: 50 %></td>
+          <% end %>
           <td><%= biblioteka.name %></td>
           <td><%= biblioteka.books.count %></td>
           <td><%= biblioteka.books.select(:genre_id).distinct.count %></td>

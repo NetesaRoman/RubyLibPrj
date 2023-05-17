@@ -83,7 +83,23 @@ class BibliotekasController < ApplicationController
   def create
     @biblioteka = Biblioteka.create(biblioteka_params)
 
-    redirect_to root_path
+    if @biblioteka.save
+      # Загрузка файла на сервер
+      uploaded_file = params[:biblioteka][:image]
+      file_path = Rails.root.join('public', 'bibliotekas', uploaded_file.original_filename)
+      File.open(file_path, 'wb') do |file|
+        file.write(uploaded_file.read)
+      end
+
+      # Сохранение пути к файлу в базе данных
+      @biblioteka.image = "/bibliotekas/#{uploaded_file.original_filename}"
+      @biblioteka.save
+
+
+      redirect_to bibliotekas_path, allow_other_host: true
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -96,6 +112,6 @@ class BibliotekasController < ApplicationController
   private
 
   def biblioteka_params
-    params.require(:biblioteka).permit(:name)
+    params.require(:biblioteka).permit(:name, :image, :address, :phone)
   end
 end

@@ -39,6 +39,7 @@
     <table id='modelsTable' style='margin-top: 300px'>
       <thead id='modelsThead'>
       <tr>
+        <th>Avatar</th>
         <th><%= link_to "Name",  biblioteka_path(@biblioteka, sort: "name") %>
 
 
@@ -65,6 +66,11 @@
       <tbody>
       <% @users.each do |user| %>
         <tr>
+          <% if user.image.present? %>
+            <td> <%= image_tag user.image, width: 50, height: 50 %></td>
+          <% else %>
+            <td> <%= image_tag '/users/avatarPlaceholder.png', width: 50, height: 50 %></td>
+          <% end %>
          <td> <%= link_to user.name, user_path(user), id: 'headerLink' %></td>
           <td><%= user.age %></td>
           <td><%= link_to user.reader_card.id, reader_card_path(user.reader_card), id: 'headerLink' %></td>
