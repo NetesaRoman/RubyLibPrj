@@ -1,6 +1,8 @@
 class Genre < ApplicationRecord
   has_many :books
 
+  accepts_nested_attributes_for :books
+
   def self.ransackable_attributes(auth_object = nil)
     %w[name]
   end

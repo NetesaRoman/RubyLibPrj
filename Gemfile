@@ -26,7 +26,14 @@ gem "stimulus-rails"
 gem "pg", "~> 1.1"
 gem 'pdfkit'
 gem 'faker'
+gem 'activeadmin'
+
+# Plus integrations with:
 gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+gem 'sassc'
 gem 'ransack'
 gem 'will_paginate'
 gem 'turbolinks'
